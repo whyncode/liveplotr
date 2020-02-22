@@ -18,10 +18,22 @@ plt.style.use("dark_background")
 def animation(list_files):
     nplot = 0
     for file in list_files:
-        nplot +=1
-        ani = FuncAnimation(plt.gcf(),plotting(file), interval=1000)
-        #ani.save('Plot_{}.mp4'.format(nplot))
-        plt.show()
+        same_plot=1
+        while same_plot:
+            ani = FuncAnimation(plt.gcf(),plotting(file), interval=1000)
+            plt.show()
+            wrong_key=1
+            while wrong_key:        
+                ch_plt=str(input("Do you want to plot another dataframe in the same file: [y/n] "))
+                if ch_plt == 'y':
+                    wrong_key=0
+                    same_plot=1
+                elif ch_plt =='n':
+                    wrong_key=0
+                    same_plot=0
+                else:
+                    wrong_key=1
+
 
 def plotting(file):
     df = pd.read_excel(file)
@@ -41,7 +53,6 @@ def plotting(file):
         yaxis = df.loc[:,axis[1]]
         xlabel, ylabel = axis[0],axis[1]
     plt.cla()
-    #plt.ion()
     plt.plot(xaxis,yaxis,color='#ffa500')
     plt.tight_layout()
     plt.xlabel('{}'.format(xlabel))
