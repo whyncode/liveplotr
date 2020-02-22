@@ -15,12 +15,13 @@ from matplotlib.animation import FuncAnimation
 
 plt.style.use("dark_background")
 
-def animation(list_files):
+def animation_plt(list_files):
     nplot = 0
     for file in list_files:
         same_plot=1
         while same_plot:
-            ani = FuncAnimation(plt.gcf(),plotting(file), interval=1000)
+            nplot+=1
+            ani = FuncAnimation(plt.gcf(),plotting(file,nplot), interval=1000)
             plt.show()
             wrong_key=1
             while wrong_key:        
@@ -33,9 +34,10 @@ def animation(list_files):
                     same_plot=0
                 else:
                     wrong_key=1
+            
 
 
-def plotting(file):
+def plotting(file,nplot):
     df = pd.read_excel(file)
     print(df.columns)
     print('\n')
@@ -58,3 +60,4 @@ def plotting(file):
     plt.xlabel('{}'.format(xlabel))
     plt.ylabel('{}'.format(ylabel))
     plt.grid(color='#39ff14',linestyle=(0, (3, 10)))
+    plt.savefig("figure{}.png".format(nplot))

@@ -18,7 +18,7 @@ def main():
     parser.add_argument('-f','--files',nargs='+',help="List of files to be plotted",required=True)
     args = parser.parse_args()
     print(args.files)
-    af.animation(args.files)
+    af.animation_plt(args.files)
 
 if __name__ == "__main__":
     main()
