@@ -25,7 +25,7 @@ def animation_plt(list_files):
             plt.show()
             wrong_key=1
             while wrong_key:        
-                ch_plt=str(input("Do you want to plot another dataframe in the same file: [y/n] "))
+                ch_plt=str(input("Do you want to plot another dataframe in the same file [y/n]: "))
                 if ch_plt == 'y':
                     wrong_key=0
                     same_plot=1
@@ -34,8 +34,6 @@ def animation_plt(list_files):
                     same_plot=0
                 else:
                     wrong_key=1
-            
-
 
 def plotting(file,nplot):
     df = pd.read_excel(file)
@@ -45,7 +43,6 @@ def plotting(file,nplot):
     print('If only one column is input, the plot is y-axis vs the sample lenght of the column')
     index = str(input("Input the name of the columns to be plotted (x-axis,y-axis): "))
     axis = index.split(',')
-    print(axis)
     if len(axis) == 1:
         yaxis = df.loc[:,axis[0]]
         xaxis = np.arange(0,len(yaxis),1)
