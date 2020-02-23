@@ -7,7 +7,6 @@ Email: santiagoguiralwe@gmail.com
 Emmanuel Gómez
 Email: egoego2509@gmail.com
 """
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -25,8 +24,8 @@ def animation_plt(list_files):
         index = str(input("Input the name of the columns to be plotted (x-axis,y-axis): "))
         axis = index.split(',')
         nplot+=1
-        ani = FuncAnimation(plt.gcf(),plotter,fargs=(file,axis,nplot),interval=100)
-        ani.save('figure{}.mp4'.format(nplot))
+        ani = FuncAnimation(plt.gcf(),plotter,fargs=(file,axis,nplot),interval=1000)
+        #ani.save('figure{}.mp4'.format(nplot))
         plt.show()
 
 def plotter(i,file,axis,nplot):
@@ -68,4 +67,4 @@ def animation_plt(list_files):
                     same_plot=0
                 else:
                     wrong_key=1
->>>>>>> ft-plot_animation
+"""
