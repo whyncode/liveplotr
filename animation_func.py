@@ -26,7 +26,7 @@ def animation_plt(list_files):
         axis = index.split(',')
         nplot+=1
         ani = FuncAnimation(plt.gcf(),plotter,fargs=(file,axis,nplot),interval=100)
-        #ani.save('figure{}.mp4'.format(nplot))
+        ani.save('figure{}.mp4'.format(nplot))
         plt.show()
 
 def plotter(i,file,axis,nplot):
@@ -47,7 +47,6 @@ def plotter(i,file,axis,nplot):
     plt.ylabel('{}'.format(ylabel))
     plt.grid(color='#39ff14',linestyle=(0, (3, 10)))
     plt.savefig("figure{}.png".format(nplot))
-
 
 
 """
