@@ -16,20 +16,20 @@ plt.style.use("dark_background")
 
 def animation_plt(list_files):
     nplot = 0
-    for file in list_files:
-        print (pd.read_excel(file).columns)
+    for efile in list_files:
+        print (pd.read_csv(efile).columns)
         print('\n')
         print('Index the names of the columns to be plotted')
         print('If only one column is input, the plot is y-axis vs the sample lenght of the column')
         index = str(input("Input the name of the columns to be plotted (x-axis,y-axis): "))
         axis = index.split(',')
         nplot+=1
-        ani = FuncAnimation(plt.gcf(),plotter,fargs=(file,axis,nplot),interval=1000)
-        #ani.save('figure{}.mp4'.format(nplot))
+        ani = FuncAnimation(plt.gcf(),plotter,fargs=(efile,axis,nplot),interval=1000)
+        ani.save('figure{}.mp4'.format(nplot))
         plt.show()
 
-def plotter(i,file,axis,nplot):
-    df=pd.read_excel(file)
+def plotter(i,efile,axis,nplot):
+    df=pd.read_csv(efile)
     if len(axis) == 1:
         yaxis = df.loc[:,axis[0]]
         xaxis = np.arange(0,len(yaxis),1)
