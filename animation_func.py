@@ -24,7 +24,7 @@ def animation_plt(list_files):
         index = str(input("Input the name of the columns to be plotted (x-axis,y-axis): "))
         axis = index.split(',')
         nplot+=1
-        ani = FuncAnimation(plt.gcf(),plotter,fargs=(efile,axis,nplot),interval=1000)
+        ani = FuncAnimation(plt.gcf(),plotter,fargs=(efile,axis,nplot),interval=200)
         ani.save('figure{}.mp4'.format(nplot))
         plt.show()
 
